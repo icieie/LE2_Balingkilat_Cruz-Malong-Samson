@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Secular+One&family=Vidaloka&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Fredoka+One&family=Secular+One&family=Vidaloka&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fjalla+One&family=Fredoka+One&family=Secular+One&family=Vidaloka&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+        <title>Wordscapes</title>
+
+        <style>
+
+            /*font-family: 'Fjalla One', sans-serif;
+            font-family: 'Fredoka One', cursive;
+            font-family: 'Bubblegum Sans', cursive;*/
+
+            body{
+                width: 100%;
+                height: 100%;
+                background-image: url("canvabg.png");
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+
+            h1{
+                margin-top: 20px;
+                text-align: center;
+                font-size: 50px;
+                font-family: 'Fredoka One', cursive;
+                color: #ffffff;
+                text-shadow: 2px 2px 5px #f69024, 0px 0px 5px #fab919;
+            }
+
+            h2{
+                text-align: center;
+                font-family: 'Bubblegum Sans', cursive;
+            }
+
+            h3{
+                width: 180px;
+                margin-top: 20px;
+                margin: auto;
+                padding-left: 10px;
+                padding-bottom: 2px;
+                border-radius: 30px;
+                background-color: rgb(255, 255, 255);
+                font-size: 25px;
+                font-family: 'Bubblegum Sans', cursive;
+            }
+
+            #text{
+                width: 50%;
+                height: 100px;
+                margin-bottom: 20px;
+                margin-top: 10px;
+                margin-right: auto;
+                margin-left: auto;
+                background-color:white;
+                border:solid 2px black;
+                font-size: 30px;
+                font-family: 'Bubblegum Sans', cursive;
+                font-weight: 400;
+                padding:10px;
+            }
+
+            button{
+                color: #000000;
+                width: 55px;
+                height: 55px;
+                border: none;
+                background-color: rgb(255, 255, 255);
+                font-size: 30px;
+                font-family: 'Bubblegum Sans', cursive;
+                font-weight: 400;
+                margin-left: 10px;
+                margin-right: 10px;
+                margin-bottom: 15px;
+                border-radius: 10px;
+                outline: none;
+            }
+
+            .letters{
+                background-color: rgb(255,255,255,0.1);
+                backdrop-filter: blur(5px);
+                box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+                border: 1px solid rgba(255,255,255,0.5);
+                border-right: 1px solid rgba(255,255,255,0.2);
+                border-bottom: 1px solid rgba(255,255,255,0.5);
+                margin-bottom: 15px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 15px;
+                border-radius: 20px;
+                width: 50%;
+                text-align: center;
+            }
+
+            .subwide{
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                width: 34%;
+            }
+
+            .words{
+                padding-top: 10px;
+            }
+
+            #list {
+                text-align: center;
+                font-family: 'Bubblegum Sans', cursive;
+                font-size:2rem;
+                background-color: rgb(255,255,255,0.3);
+                box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+                border: 1px solid rgba(255,255,255,0.5);
+                border-right: 1px solid rgba(255,255,255,0.2);
+                border-bottom: 1px solid rgba(255,255,255,0.5);
+                margin-bottom: 15px;
+                margin-right: auto;
+                margin-left: auto;
+                padding-top: 15px;
+                border-radius: 20px;
+                width: 50%;
+            }
+            
+        </style>
+
+        <script>
+            function F(){
+                document.getElementById("text").innerHTML += 'F';
+                document.getElementById("F").disabled = true;
+                document.getElementById("F").setAttribute('style', 'color:gray');
+            }
+            function R(){
+                document.getElementById("text").innerHTML += 'R';
+                document.getElementById("R").disabled = true;
+                document.getElementById("R").setAttribute('style', 'color:gray');
+            }
+            function I(){
+                document.getElementById("text").innerHTML += 'I';
+                document.getElementById("I").disabled = true;
+                document.getElementById("I").setAttribute('style', 'color:gray');
+            }
+            function E(){
+                document.getElementById("text").innerHTML += 'E';
+                document.getElementById("E").disabled = true;
+                document.getElementById("E").setAttribute('style', 'color:gray');
+            }
+            function N(){
+                document.getElementById("text").innerHTML += 'N';
+                document.getElementById("N").disabled = true;
+                document.getElementById("N").setAttribute('style', 'color:gray');
+            }
+            function D(){
+                document.getElementById("text").innerHTML += 'D';
+                document.getElementById("D").disabled = true;
+                document.getElementById("D").setAttribute('style', 'color:gray');
+            }
+            function S(){
+                document.getElementById("text").innerHTML += 'S';
+                document.getElementById("S").disabled = true;
+                document.getElementById("S").setAttribute('style', 'color:gray');
+            }
+            
+            function Clear(){
+                document.getElementById("text").innerHTML = "&nbsp;";
+                var Word;
+                Word = document.getElementById("text").innerHTML;
+                document.getElementById("F").disabled = false;
+                document.getElementById("R").disabled = false;
+                document.getElementById("I").disabled = false;
+                document.getElementById("E").disabled = false;
+                document.getElementById("N").disabled = false;
+                document.getElementById("D").disabled = false;
+                document.getElementById("S").disabled = false;
+                document.getElementById("F").setAttribute('style', 'color:black');
+                document.getElementById("R").setAttribute('style', 'color:black');
+                document.getElementById("I").setAttribute('style', 'color:black');
+                document.getElementById("E").setAttribute('style', 'color:black');
+                document.getElementById("N").setAttribute('style', 'color:black');
+                document.getElementById("D").setAttribute('style', 'color:black');
+                document.getElementById("S").setAttribute('style', 'color:black');
+                document.getElementById("text").innerHTML = '';
+            }
+            
+            var counter=0;
+            var W1 = false;
+            var W2 = false;
+            var W3 = false;
+            var W4 = false;
+            var W5 = false;
+            var W6 = false;
+            var W7 = false;
+            var W8 = false;
+            var W9 = false;
+            var W10 = false;
+            var W11 = false;
+            var W12 = false;
+            var W13 = false;
+            var W14 = false;
+            var W15 = false;
+            var W16 = false;
+            var W17 = false;
+            var W18 = false;
+            var W19 = false;
+            var W20 = false;
+            var W21 = false;
+            var W22 = false;
+            var W23 = false;
+            var W24 = false;
+            var W25 = false;
+            var W26 = false;
+            var W27 = false;
+            var W28 = false;
+            var W29 = false;
+            var W30 = false;
+            function Submit(){ 
+                var Word;
+                Word = document.getElementById("text").innerHTML;
+                document.getElementById("F").disabled = false;
+                document.getElementById("R").disabled = false;
+                document.getElementById("I").disabled = false;
+                document.getElementById("E").disabled = false;
+                document.getElementById("N").disabled = false;
+                document.getElementById("D").disabled = false;
+                document.getElementById("S").disabled = false;
+                document.getElementById("F").setAttribute('style', 'color:black');
+                document.getElementById("R").setAttribute('style', 'color:black');
+                document.getElementById("I").setAttribute('style', 'color:black');
+                document.getElementById("E").setAttribute('style', 'color:black');
+                document.getElementById("N").setAttribute('style', 'color:black');
+                document.getElementById("D").setAttribute('style', 'color:black');
+                document.getElementById("S").setAttribute('style', 'color:black');
+                document.getElementById("text").innerHTML = '';
+                
+                if (counter <= 29){
+                    if (W1 == false && Word == "IF"){
+                    document.getElementById("list").innerHTML+="IF" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W1 = true;
+                    }
+
+                    else if (W2 == false && Word == "IN"){
+                    document.getElementById("list").innerHTML+="IN" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W2 = true;
+                    }
+
+                    else if (W3 == false && Word == "IS"){
+                    document.getElementById("list").innerHTML+="IS" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W3 = true;
+                    }
+
+                    else if (W4 == false && Word == "END"){
+                    document.getElementById("list").innerHTML+="END" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W4 = true;
+                    }
+
+                    else if (W5 == false && Word == "FED"){
+                    document.getElementById("list").innerHTML+="FED" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W5 = true;
+                    }
+
+                    else if (W6 == false && Word == "FIN"){
+                    document.getElementById("list").innerHTML+="FIN" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W6 = true;
+                    }
+
+                    else if (W7 == false && Word == "RED"){
+                    document.getElementById("list").innerHTML+="RED" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W7 = true;
+                    }
+
+                    else if (W8 == false && Word == "SIN"){
+                    document.getElementById("list").innerHTML+="SIN" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W8 = true;
+                    }
+
+                    else if (W9 == false && Word == "SIR"){
+                    document.getElementById("list").innerHTML+="SIR" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W9 = true;
+                    }
+
+                    else if (W10 == false && Word == "DINE"){
+                    document.getElementById("list").innerHTML+="DINE" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W10 = true;
+                    }
+
+                    else if (W11 == false && Word == "FIND"){
+                    document.getElementById("list").innerHTML+="FIND" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W11 = true;
+                    }
+
+                    else if (W12 == false && Word == "FINE"){
+                    document.getElementById("list").innerHTML+="FINE" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W12 = true; 
+                    }
+
+                    else if (W13 == false && Word == "FINS"){
+                    document.getElementById("list").innerHTML+="FINS" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W13 = true}
+
+                    else if (W14 == false && Word == "FIRE"){
+                    document.getElementById("list").innerHTML+="FIRE" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W14 = true;
+                    }
+
+                    else if (W15 == false && Word == "NERD"){
+                    document.getElementById("list").innerHTML+="NERD" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W15 = true;
+                    }
+
+                    else if (W16 == false && Word == "RIDE"){
+                    document.getElementById("list").innerHTML+="RIDE" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W16 = true;
+                    }
+
+                    else if (W17 == false && Word == "SEND"){
+                    document.getElementById("list").innerHTML+="SEND" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W17 = true;
+                    }
+
+                    else if (W18 == false && Word == "SIDE"){
+                    document.getElementById("list").innerHTML+="SIDE" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W18 = true;
+                    }
+
+                    else if (W19 == false && Word == "DRIES"){
+                    document.getElementById("list").innerHTML+="DRIES" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W19 = true;
+                    }
+
+                    else if (W20 == false && Word == "FINDS"){
+                    document.getElementById("list").innerHTML+="FINDS" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W20 = true;
+                    }
+
+                    else if (W21 == false && Word == "FINED"){
+                    document.getElementById("list").innerHTML+="FINED" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W21 = true;
+                    }
+
+                    else if (W22 == false && Word == "FRIED"){
+                    document.getElementById("list").innerHTML+="FRIED" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W22 = true;
+                    }
+
+                    else if (W23 == false && Word == "FRIES"){
+                    document.getElementById("list").innerHTML+="FRIES" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W23 = true;
+                    }
+
+                    else if (W24 == false && Word == "NERDS"){
+                    document.getElementById("list").innerHTML+="NERDS" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W24 = true;
+                    }
+
+                    else if (W25 == false && Word == "RIDES"){
+                    document.getElementById("list").innerHTML+="RIDES" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W25 = true;
+                    }
+
+                    else if (W26 == false && Word == "FINDER"){
+                    document.getElementById("list").innerHTML+="FINDER" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W26 = true;
+                    }
+
+                    else if (W27 == false && Word == "FRIEND"){
+                    document.getElementById("list").innerHTML+="FRIEND" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W27 = true;
+                    }
+                    
+                    else if (W28 == false && W3 == false && Word == "FRIENDS"){
+                    document.getElementById("list").innerHTML+="FRIENDS" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W28 = true;
+                    }  
+                    
+                    else if (W29 == false && W3 == false && Word == "DIE"){
+                    document.getElementById("list").innerHTML+="DIE" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W29 = true;
+                    }
+                    
+                    else if (W29 == false && W3 == false && Word == "FIRED"){
+                    document.getElementById("list").innerHTML+="FIRED" + "<br>";
+                    counter++;
+                    document.getElementById("paracounter").innerHTML = counter;
+                    W30 = true;
+                    }
+                    
+                    else {
+                        Swal.fire("Try again!", "Your input is either already submitted or is not included in our dictionary.");
+                    }   
+                }
+                }
+            
+            
+        </script>
+    </head>
+    
+    <body>
+        <div class="container" id="title-part">
+            <h1>Mini Wordscapes</h1>
+            <h2>Form as many words as you can from the letters below!</h2>
+        </div>
+
+        <div class="container" id="score-part">
+            <h3>Score: <span id="paracounter">0</span></h3>
+        </div>
+
+        <div class="container" id="letter-part">
+            <p id="text"></p>
+
+            <div class="letters">
+                <button type="button" class="letter" onclick="R()" id="R">R</button>
+                <button type="button" class="letter" onclick="F()" id="F">F</button>
+                <button type="button" class="letter" onclick="E()" id="E">E</button>
+                <button type="button" class="letter" onclick="D()" id="D">D</button>
+                <button type="button" class="letter" onclick="I()" id="I">I</button>
+                <button type="button" class="letter" onclick="N()" id="N">N</button>
+                <button type="button" class="letter" onclick="S()" id="S">S</button>
+                <button type="button" class="subwide" onclick="Clear()">CLEAR</button>
+                <button type="button" class="subwide" onclick="Submit()">SUBMIT</button>
+            </div>
+        </div>
+
+        <div class="container" id="words-part">
+            <h2 class="words">Words you've already formed:</h2>
+            <p id="list"></p>
+        </div>
+    </body>
+
+</html>
